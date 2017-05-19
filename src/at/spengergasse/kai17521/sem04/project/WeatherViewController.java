@@ -22,7 +22,7 @@ public class WeatherViewController extends Parent {
   void applyData(WeatherData data) {
     if (data == null) {
       emptyFields();
-      city.setText("Failed to fetch");
+      // city.setText("Failed to fetch");
       return;
     }
 

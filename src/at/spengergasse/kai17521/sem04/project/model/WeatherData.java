@@ -7,6 +7,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 
 import java.io.*;
 
@@ -30,15 +31,14 @@ public class WeatherData {
     applyConditions(fetchData());
   }
 
-  public Conditions fetchData() throws IOException {
-    InputStream is = api.conditions(place);
+  private Conditions fetchData() throws IOException {
     return new Gson().fromJson(
-      new InputStreamReader(is),
+      new InputStreamReader(api.conditions(place)),
       Conditions.class
     );
   }
 
-  public void applyConditions(Conditions conditions) {
+  private void applyConditions(Conditions conditions) {
     this.conditions.set(conditions);
     city.set(conditions.getCurrentObservation().getDisplayLocation().getCity());
   }

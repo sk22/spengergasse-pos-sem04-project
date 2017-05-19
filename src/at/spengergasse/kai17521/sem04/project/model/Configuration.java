@@ -25,15 +25,7 @@ public class Configuration {
     return selected;
   }
 
-  public void setSelected(String selected) {
-    this.selected = selected;
-  }
-
   public List<String> getPlaces() {
     return places;
-  }
-
-  public void setPlaces(List<String> places) {
-    this.places = places;
   }
 }
