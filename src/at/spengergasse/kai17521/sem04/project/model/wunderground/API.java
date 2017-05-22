@@ -19,6 +19,11 @@ public class API {
     return fetch(url);
   }
 
+  public InputStream forecast(String query) throws IOException {
+    String url = "/forecast/q/" + query.replaceAll("\\s", "_" ) + ".json";
+    return fetch(url);
+  }
+
   public InputStream fetch(String param) throws IOException {
     System.out.println("Fetching " + param);
     return new URL(baseUrl + param).openStream();

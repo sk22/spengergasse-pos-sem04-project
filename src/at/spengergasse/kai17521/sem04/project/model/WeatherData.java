@@ -1,13 +1,13 @@
 package at.spengergasse.kai17521.sem04.project.model;
 
 import at.spengergasse.kai17521.sem04.project.model.wunderground.API;
-import at.spengergasse.kai17521.sem04.project.model.wunderground.conditions.Conditions;
+import at.spengergasse.kai17521.sem04.project.model.wunderground.conditions.ConditionsResponse;
+import at.spengergasse.kai17521.sem04.project.model.wunderground.forecast.ForecastResponse;
 import com.google.gson.Gson;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 
 import java.io.*;
 
@@ -19,7 +19,10 @@ public class WeatherData {
   private String place;
   private API api;
 
-  private ObjectProperty<Conditions> conditions = new SimpleObjectProperty<>();
+  private ObjectProperty<ConditionsResponse> conditions =
+    new SimpleObjectProperty<>();
+  private ObjectProperty<ForecastResponse> forecast =
+    new SimpleObjectProperty<>();
   private StringProperty city = new SimpleStringProperty();
 
   public WeatherData(String place, API api) {
@@ -28,26 +31,26 @@ public class WeatherData {
   }
 
   public void load() throws IOException {
-    applyConditions(fetchData());
-  }
-
-  private Conditions fetchData() throws IOException {
-    return new Gson().fromJson(
+    Gson gson = new Gson();
+    conditions.set(gson.fromJson(
       new InputStreamReader(api.conditions(place)),
-      Conditions.class
-    );
+      ConditionsResponse.class
+    ));
+    forecast.set(gson.fromJson(
+      new InputStreamReader(api.forecast(place)),
+      ForecastResponse.class
+    ));
   }
 
-  private void applyConditions(Conditions conditions) {
-    this.conditions.set(conditions);
-    city.set(conditions.getCurrentObservation().getDisplayLocation().getCity());
-  }
-
-  public Conditions getConditions() {
+  public ConditionsResponse getConditions() {
     return conditions.get();
   }
 
-  public ObjectProperty<Conditions> conditionsProperty() {
+  public ForecastResponse getForecast() {
+    return forecast.get();
+  }
+
+  public ObjectProperty<ConditionsResponse> conditionsProperty() {
     return conditions;
   }
 }

@@ -3,10 +3,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane
+<VBox
   fx:controller="at.spengergasse.kai17521.sem04.project.WeatherViewController"
-  style="-fx-padding: 20px" vgap="10" hgap="10"
+  style="-fx-padding: 20px"
+  spacing="20"
   xmlns:fx="http://javafx.com/fxml/1"
 >
   <Text
@@ -14,15 +16,24 @@
     GridPane.rowIndex="0"
     GridPane.columnIndex="0"
     GridPane.columnSpan="2"
-    fx:id="city"
+    fx:id="title"
   />
-  <Label
-    GridPane.rowIndex="1"
+  <GridPane vgap="10" hgap="10">
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="0">Temperature</Label>
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="temperature"/>
+
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="0">Humidity</Label>
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="humidity"/>
+
+    <Label GridPane.rowIndex="3" GridPane.columnIndex="0">Wind</Label>
+    <Label GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="wind"/>
+  </GridPane>
+
+  <GridPane
+    fx:id="forecastGrid"
+    hgap="10"
+    vgap="5"
+    GridPane.rowIndex="4"
     GridPane.columnIndex="0"
-  >Temparature</Label>
-  <Label
-    GridPane.rowIndex="1"
-    GridPane.columnIndex="1"
-    fx:id="temparature"
   />
-</GridPane>
+</VBox>
