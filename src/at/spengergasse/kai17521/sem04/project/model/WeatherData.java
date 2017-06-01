@@ -76,4 +76,8 @@ public class WeatherData {
   public ObjectProperty<ConditionsResponse> conditionsProperty() {
     return conditions;
   }
+
+  public String getPlace() {
+    return place;
+  }
 }
