@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+  fx:controller="at.spengergasse.kai17521.sem04.project.AppController"
+  fx:id="root"
+  xmlns:fx="http://javafx.com/fxml/1"
+>
+  <top>
+    <MenuBar>
+      <Menu text="File">
+        <MenuItem text="Save" onAction="#handleSave"/>
+        <MenuItem text="Import..." onAction="#handleImport" />
+        <MenuItem text="Export..." onAction="#handleExport" />
+        <SeparatorMenuItem />
+        <MenuItem text="Exit" onAction="#handleExit" />
+      </Menu>
+    </MenuBar>
+  </top>
+  <left>
+    <VBox>
+      <ToolBar>
+        <Label text="Places" />
+        <Separator />
+        <Button text="Add" onAction="#handleAddPlace" />
+        <Button text="Remove" onAction="#handleRemovePlace" />
+        <Button text="Refresh" onAction="#handleRefresh" />
+      </ToolBar>
+      <ListView
+        VBox.vgrow="ALWAYS"
+        items="${controller.places}"
+        fx:id="placesListView"
+      />
+    </VBox>
+  </left>
+</BorderPane>

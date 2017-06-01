@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="weather">
+    <output-path>$PROJECT_DIR$/out/artifacts/weather</output-path>
+    <root id="archive" name="weather.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="weather-app-javafx" />
+    </root>
+  </artifact>
+</component>
