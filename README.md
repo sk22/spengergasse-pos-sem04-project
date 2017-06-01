@@ -18,12 +18,10 @@ Weather app build with JavaFX for school
 * JavaFX 8
 * FXML
 * HTTP (GET Requests with `HttpURLConnection`)
-* JSON (Parsing received data, using GSON)
+* JSON (Parsing received data, and saving configuration files using GSON)
 * Multithreading (Multiple locations are fetched at once)
 
 ### Layout
-
-#### Main Window
 
 ```
 +-------------------------------+
@@ -44,9 +42,3 @@ Weather app build with JavaFX for school
   - Hard facts (Temperature, Air pressure, Wind, ...)
   - Forecast with icons
   - Temperature forecast graph
-
-#### Add Dialog
-
-* Text fields for the state and city
-* OK and Cancel buttons
-
