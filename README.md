@@ -14,9 +14,10 @@ Weather app build with JavaFX for school
 
 * Java 8
 * JavaFX 8
-* FXML (Scene Builder)
+* FXML
 * HTTP (GET Requests with `HttpURLConnection`)
 * JSON (Parsing received data, using GSON)
+* Multithreading (Multiple locations are fetched at once)
 
 ### Layout
 
@@ -34,12 +35,12 @@ Weather app build with JavaFX for school
 
 ```
 
-* Top Bar: File (Save, Save as, Open, Exit)
+* Top Bar: File (Save, Import, Export, Exit)
 * Sidebar: List of places
-  - Bottom: Toolbar (Edit, Remove)
+  - Top: Toolbar (Add, Remove, Refresh)
 * Main Content: Weather details
   - Hard facts (Temperature, Air pressure, Wind, ...)
-  - Graph displaying the temperature trend/forecast
+  - Forecast with icons
 
 #### Editing Dialog
 

@@ -20,7 +20,7 @@ public class API {
   }
 
   public InputStream forecast(String query) throws IOException {
-    String url = "/forecast/q/" + query.replaceAll("\\s", "_" ) + ".json";
+    String url = "/forecast10day/q/" + query.replaceAll("\\s", "_" ) + ".json";
     return fetch(url);
   }
 

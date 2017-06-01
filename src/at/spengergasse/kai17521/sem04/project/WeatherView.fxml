@@ -4,6 +4,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 
 <VBox
   fx:controller="at.spengergasse.kai17521.sem04.project.WeatherViewController"
@@ -36,4 +37,6 @@
     GridPane.rowIndex="4"
     GridPane.columnIndex="0"
   />
+
+  <AnchorPane fx:id="chartPane" />
 </VBox>
